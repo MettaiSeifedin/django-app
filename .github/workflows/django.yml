@@ -1,24 +1,22 @@
-name: Django github action
-on: push 
+name: Django Github Action
 
-jobs: 
+on: push
+jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 2
       matrix:
         python-version: [3.11]
-
-    steps: 
+    
+    steps:
       - uses: actions/checkout@v3
-      - name: Setup Python version ${{matrix.python-version}}
-        uses: actions/setup-python@v5.2.0
+      - name: Setup Python Version ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
-            python-version: ${{ matrix.python-version }}
-      - name: install dependencies 
-        run: 
-          python -m pip install --upgrade pip 
-          pip install -r requirements.txt 
-          
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
           
       
