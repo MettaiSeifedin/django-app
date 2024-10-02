@@ -54,7 +54,7 @@ if not IS_HEROKU_APP:
 if IS_HEROKU_APP:
     ALLOWED_HOSTS = ["*"]
 else:
-    ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", "0.0.0.0", "django-app-using-cicd.onrender.com"]
+    ALLOWED_HOSTS = ["*", "django-app-using-cicd.onrender.com"]
 
 
 # Application definition

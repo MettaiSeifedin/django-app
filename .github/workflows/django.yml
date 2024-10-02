@@ -33,7 +33,4 @@ jobs:
         with:
           service_id: ${{ secrets.RENDER_SERVICE_ID }}
           api_key: ${{ secrets.RENDER_API_KEY }}
-          clear_cache: false
-          wait_deploy: false
-          github_deployment: false
-          deployment_environment: production
+          branch: main
