@@ -21,19 +21,3 @@ jobs:
       - name: Running the tests 
         run: 
           python manage.py test
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy our Django app to Render
-    needs: build  # Ensures build completes before deploying
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Deploy to Render
-        uses: JorgeLNJunior/render-deploy@v1.4.4
-        with:
-          service_id: ${{ secrets.RENDER_SERVICE_ID }}
-          api_key: ${{ secrets.RENDER_API_KEY }}
-          clear_cache: false
-          wait_deploy: false
-          github_deployment: false
-          deployment_environment: production
